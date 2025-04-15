@@ -42,8 +42,8 @@ window.onload=function(){
       savePosts();
   
       // Clear the input fields
-     // titleInput.value = "";
-      //contentInput.value = "";
+      titleInput.value = "";
+      contentInput.value = "";
   
       // Re-render the posts list
       renderPosts();
