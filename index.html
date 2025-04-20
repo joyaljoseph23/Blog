@@ -4,21 +4,99 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
     <title>Home</title>
 </head>
 <body>
-    <div class="blog-container">
-        <h2>Welcome !</h2>
-        <form id="addPostForm">
-            <input type="text" id="titleInput" placeholder="Enter Post Title" required>
-            <textarea id="contentInput" placeholder="Enter post content" required></textarea>
-            <button type="submit">Add Post</button>
-        </form>
-        <ul id="postList">
+   
+        <nav>
+            <ul>
+               
+                    <li><a href="#" id="navBlog">Blog</a></li>
+                    <li><a href="#" id="navFitness">Fitness Tracker</a></li>
+               
+            </ul>
+        </nav>
+    
+   <div id="container">
+            <div class="blog-container" id="blogSection">
+                <h2>Welcome !</h2>
+                <form id="addPostForm">
+                    <input type="text" id="titleInput" placeholder="Enter Post Title" required>
+                    <textarea id="contentInput" placeholder="Enter post content" required></textarea>
+                    <button type="submit">Add Post</button>
+                </form>
+                <ul id="postList">
 
-        </ul>
-    </div>
+                </ul>
+            </div>
+            <div id="fitnessSection" style="display: none;">
+                <h1>Fitness Tracker</h1>
+                <!-- <form id="addWorkoutForm">  -->
+                    <div class="row">
+                        <div class="col-me-4">
+                            <div class="day-selector">
+                                <button data-day="Monday">Monday</button>
+                                <button data-day="Tuesday">Tuesday</button>
+                                <button data-day="Wednesday">Wednesday</button>
+                                <button data-day="Thursday">Thursday</button>
+                                <button data-day="Friday">Friday</button>
+                                <button data-day="Saturday">Saturday</button>
+                                <button data-day="Sunday">Sunday</button>
+                              </div>
+                              <ul id="filteredWorkoutList"></ul>
+                        </div>
+                        
+                    </div>
+                    
+                      
+                      
+                      
+                    <div class="row">
+                        
+                            <div class="col-md-4">
+                                <div class="card" style="width: 18rem;">
+                                    <img class="card-img-top" src="..." alt="Card image cap">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Incline Db Bench Press</h5>
+                                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    </div>
+                                  </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card" style="width: 18rem;">
+                                    <img class="card-img-top" src="..." alt="Card image cap">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Seated db press</h5>
+                                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    </div>
+                                  </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card" style="width: 18rem;">
+                                    <img class="card-img-top" src="..." alt="Card image cap">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Cable press over</h5>
+                                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    </div>
+                                  </div>
+                            </div>
+                              
+                             
+                        </div>
+                  
+                   
+                  
+                <!-- </form> -->
+                <ul id="workoutList"></ul>
+            </div>
+        </div>
+            
 
+        
     <script src="js/script.js"></script>
 </body>
 
