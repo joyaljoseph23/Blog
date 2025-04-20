@@ -4,7 +4,7 @@ window.onload=function(){
     const titleInput = document.getElementById("titleInput");
     const contentInput = document.getElementById("contentInput");
     const postList = document.getElementById("postList");
-
+    let workouts = JSON.parse(localStorage.getItem("workouts")) || [];
 
     let posts = JSON.parse(localStorage.getItem("blogPosts")) || [];
     function savePosts() {
@@ -72,6 +72,80 @@ window.onload=function(){
     });
   }
 
+  const navBlog = document.getElementById("navBlog");
+  const navFitness = document.getElementById("navFitness");
+  const blogSection = document.getElementById("blogSection");
+  const fitnessSection = document.getElementById("fitnessSection");
+
+  
+  navBlog.addEventListener("click", (e) => {
+    e.preventDefault();
+    blogSection.style.display = "block";
+    fitnessSection.style.display = "none";
+  });
+  
+  navFitness.addEventListener("click", (e) => {
+    e.preventDefault();
+    blogSection.style.display = "none";
+    fitnessSection.style.display = "block";
+  });
+
+
+  const dayButtons = document.querySelectorAll(".day-selector button");
+ 
+  const filteredWorkoutList = document.getElementById("filteredWorkoutList");
+
+  
+  // Function to get the weekday from a date
+  function getDayOfWeek(dateString) {
+    const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    const date = new Date(dateString);
+    console.log("days :",days[0])
+    return days[date.getDay()];
+  }
+  // console.log("days :"getDayOfWeek(""))
+  
+  // Show workouts for a selected day
+  function showWorkoutsForDay(selectedDay) {
+    filteredWorkoutList.innerHTML = "";
+  
+    const workoutsForDay = workouts.filter(workout => {
+      return getDayOfWeek(workout.date) === selectedDay;
+    });
+  
+    if (workoutsForDay.length === 0) {
+      filteredWorkoutList.innerHTML = `<li>No workouts logged for ${selectedDay}.</li>`;
+      return;
+    }
+  
+    workoutsForDay.forEach(workout => {
+      const workoutItem = document.createElement("li");
+      workoutItem.innerHTML = `
+        <strong>${workout.date}</strong> — 
+        <em>${workout.type}</em> for 
+        <strong>${workout.duration} min</strong>
+        ${workout.notes ? ` - ${workout.notes}` : ""}
+      `;
+      filteredWorkoutList.appendChild(workoutItem);
+    });
+  }
+  
+  // Add click events to day buttons
+  dayButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      const selectedDay = button.getAttribute("data-day");
+      showWorkoutsForDay(selectedDay);
+    });
+  });
+  
+
+
+
+
 
 };
+
+
+
+// Navigation logic
 
